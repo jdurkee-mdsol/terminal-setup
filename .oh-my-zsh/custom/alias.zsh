@@ -24,10 +24,19 @@ alias run='dc up --build rails'
 alias con='dcr rails bundle exec rails c'
 alias exe='dce rails bash'
 
-alias aws='docker run --rm -v $(pwd)/.kube:/root/.kube -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+alias aws='docker run --rm -it -v $(pwd)/.kube:/root/.kube -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+alias aws-bash='docker run --rm -it --entrypoint="" -v $(pwd)/.kube:/root/.kube -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
 alias aws-ssm='docker run --rm -it -v $(pwd)/.kube:/root/.kube -v ~/.aws:/root/.aws -v $(pwd):/aws aws-ssm'
 alias aws_o='docker run -e PAGER="" --rm -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
+alias aws-q='docker run --rm -it --entrypoint="" -v ~/.aws:/aws/.aws awsq'
 alias laws='docker run --network localstack --rm -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli --profile localstack'
 alias kaws='docker run --rm -it -v $(pwd)/.kube:/root/.kube -v ~/.aws:/root/.aws -v $(pwd):/aws --entrypoint="" aws-ssm kubectl'
+alias sso='aws sso login --no-browser --use-device-code'
 
 alias ecr-login='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 767904627276.dkr.ecr.us-east-1.amazonaws.com'
+# Kubernetes pod connection helper
+alias pod-connect="~/Documents/docker/pod-connect.sh"
+# Kubernetes namespace listing and selection helper
+alias k8s-ns="~/Documents/docker/namespace-list.sh"
+# Amazon Q with AWS CLI context
+alias awsq='/Users/jdurkee/Documents/docker/q-aws-context.ksh'
