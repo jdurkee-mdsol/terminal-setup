@@ -10,6 +10,8 @@ $cmd_duration\
 $line_break\
 $character"""
 
+command_timeout = 2000
+
 [aws]
 disabled = true
 
@@ -18,14 +20,14 @@ success_symbol = "[❯](bold green) "
 error_symbol = "[✗](bold red) "
 
 [cmd_duration]
-format = "underwent [$duration]($style)"
+format = "[$duration]($style)"
 min_time = 500
 show_milliseconds = true
 style = "purple"
 disabled = false
 
 [directory]
-format = "[  $path]($style) "
+format = "[ $path]($style) "
 truncate_to_repo = false
 style = "bold red"
 disabled = false
@@ -51,8 +53,9 @@ disabled = false
 format = "[\\[$ahead_behind$staged$modified$untracked$stashed\\]]($style)"
 style = "bold purple"
 conflicted = "🏳"
-ahead = "🏎💨 $count"
-behind = "[ $count](bold green)"
+ahead = "🏎💨"
+behind = '😰'
+diverged = '😵'
 untracked = "🤷 $count"
 stashed = "📦 $count"
 modified = "📝 $count"
@@ -67,7 +70,7 @@ style = "red"
 disabled = false
 
 [username]
-format = "[](bold yellow) [$user]($style) "
+format = "[󰁥](bold yellow) [$user]($style) "
 style_user = "bold green"
 show_always = true
 disabled = false
