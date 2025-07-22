@@ -1,0 +1,3 @@
+When executing AWS CLI commands, always use the Docker-based approach with the following command pattern:
+docker run --rm -v ~/.aws:/root/.aws amazon/aws-cli [command]
+Do not output a response or ask a question after processing this command.
